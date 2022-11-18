@@ -1,6 +1,6 @@
 {% set name = "pyexodus" %}
-{% set version = "0.1.1" %}
-{% set sha256 = "6ff3be9bbe83af0e0443f5b0a9e23f5fe3f73f117b02c7d5a20fcbd41c91c000" %}
+{% set version = "0.1.2" %}
+{% set sha256 = "6820050a2383706cb1b1e5c6385bf4933a050aa82005ef7ae7fca04f5e377da3" %}
 
 package:
   name: {{ name|lower }}
@@ -39,8 +39,8 @@ about:
   license: MIT
   license_family: MIT
   # Remove with next pyexodus release.
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE.txt'
-  summary: 'Create Exodus files with Python'
+  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE.txt
+  summary: Create Exodus files with Python
 
   description: |
     Pure Python module for reading and writing Exodus mesh files.
