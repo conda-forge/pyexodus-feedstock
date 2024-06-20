@@ -1,6 +1,6 @@
 {% set name = "pyexodus" %}
-{% set version = "0.1.1" %}
-{% set sha256 = "6ff3be9bbe83af0e0443f5b0a9e23f5fe3f73f117b02c7d5a20fcbd41c91c000" %}
+{% set version = "0.1.5" %}
+{% set sha256 = "06e63e49aa941b330eabfbc0a809333d15d40fc925a91bf0e8506d9f38c5a33d" %}
 
 package:
   name: {{ name|lower }}
@@ -17,7 +17,7 @@ build:
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
-  build:
+  host:
     - python
     - setuptools
   run:
