@@ -28,7 +28,7 @@ requirements:
     - h5netcdf
 
 test:
-  imports
+  imports:
     - pyexodus
   requires:
     - python {{ python_min }}
