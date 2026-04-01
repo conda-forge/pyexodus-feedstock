@@ -41,8 +41,7 @@ about:
   home: https://salvushub.github.io/pyexodus/
   license: MIT
   license_family: MIT
-  # Remove with next pyexodus release.
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE.txt'
+  license_file: LICENSE.txt
   summary: 'Create Exodus files with Python'
 
   description: |
