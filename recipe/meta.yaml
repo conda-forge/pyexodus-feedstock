@@ -14,20 +14,20 @@ source:
 build:
   noarch: python
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: pip install .
 
 requirements:
   host:
     - python {{ python_min }}
     - setuptools
   run:
-    - python >={ python_min }}
+    - python >={{ python_min }}
     - numpy
     - h5netcdf
 
 test:
   requires:
-    - python >={ python_min }}
+    - python >={{ python_min }}
     - pytest
     - flake8
   imports:
