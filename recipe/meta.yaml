@@ -1,6 +1,6 @@
 {% set name = "pyexodus" %}
-{% set version = "0.1.1" %}
-{% set sha256 = "6ff3be9bbe83af0e0443f5b0a9e23f5fe3f73f117b02c7d5a20fcbd41c91c000" %}
+{% set version = "0.1.6" %}
+{% set sha256 = "c6f1d6a933721d0c5e12b7942588059aabe471e3c70f1f792d865fa708aa22bb" %}
 
 package:
   name: {{ name|lower }}
@@ -8,29 +8,32 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
-    - python
+  host:
+    - pip
+    - python {{ python_min }}.*
     - setuptools
+    - setuptools_scm
   run:
-    - python
+    - python >={{ python_min }}
     - numpy
     - h5netcdf
 
 test:
-  requires:
-    - pytest
-    - flake8
   imports:
     - pyexodus
+  requires:
+    - python {{ python_min }}.*
+    - pytest
+    - flake8
   commands:
     - pytest --pyargs pyexodus
 
@@ -38,8 +41,7 @@ about:
   home: https://salvushub.github.io/pyexodus/
   license: MIT
   license_family: MIT
-  # Remove with next pyexodus release.
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE.txt'
+  license_file: LICENSE.txt
   summary: 'Create Exodus files with Python'
 
   description: |
